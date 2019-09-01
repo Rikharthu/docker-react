@@ -10,6 +10,8 @@ RUN npm run build
 # Run phase
 # Copy output of /build command, delete unnecessary stuff and start web-server
 FROM nginx
+# Elastic Beanstalk will automatically map to this port with incoming traffic
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 # Default command of nginx image will start nginx for us automatically
  
